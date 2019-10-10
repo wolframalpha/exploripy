@@ -27,10 +27,17 @@ from tqdm import tqdm
 
 
 class EDA: 
-	def __init__(self,df,CategoricalFeatures=[],OtherFeatures=[],filename="index.html",VIF_threshold=5,debug='NO',title='Exploratory Data Analysis'):
+	def __init__(self,df,CategoricalFeatures=[],
+		     OtherFeatures=[],
+		     filename="index.html",
+		     VIF_threshold=5,
+		     debug='NO',
+		     title='Exploratory Data Analysis',
+		     op_folder='.'):
 		''' 
 		Constructor for this class. 
 		'''
+		self.op_folder = op_folder
 		self.df = df
 		self.df.columns = [col.replace(" ", "_") for col in df.columns]
 		self.df.columns = [col.replace("(", "_") for col in df.columns]
@@ -109,8 +116,8 @@ class EDA:
 		Main function to be called
 		'''
 		filename = 'HTMLTemplate\\dist\\HTMLTemplate_V2.html'
-		this_dir, this_filename = os.path.split(__file__)
-		
+# 		this_dir, this_filename = os.path.split(__file__)
+		this_dir = self.op_dir
 		Template_PATH = os.path.join(this_dir, filename)
 
 		with open(Template_PATH) as file:
