@@ -33,11 +33,11 @@ class EDA:
 		     VIF_threshold=5,
 		     debug='NO',
 		     title='Exploratory Data Analysis',
-		     op_folder='.'):
+		     op_dir='.'):
 		''' 
 		Constructor for this class. 
 		'''
-		self.op_folder = op_folder
+		self.op_dir = op_dir
 		self.df = df
 		self.df.columns = [col.replace(" ", "_") for col in df.columns]
 		self.df.columns = [col.replace("(", "_") for col in df.columns]
